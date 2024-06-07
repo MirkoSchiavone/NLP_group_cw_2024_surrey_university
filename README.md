@@ -34,12 +34,12 @@ docker build -t nlp-webapp .
 ### Run application in Docker:
 ```bash
 # quantized model
-docker run -e MODEL=quantized -p 5000:5000 nlp-webapp
+docker run -e MODEL=quantized -v $(pwd):/root/web_app/db -p 5000:5000 nlp-webapp
 ```
 or
 ```bash
 # non-quantized model
-docker run -e MODEL=biobert -p 5000:5000 nlp-webapp
+docker run -e MODEL=biobert -v $(pwd):/root/web_app/db -p 5000:5000 nlp-webapp
 ```
 
 ### Deploy the application using CI/CD
